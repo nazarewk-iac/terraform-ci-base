@@ -7,10 +7,9 @@ resource "tfe_workspace" "self" {
   name         = replace(local.self-name, "/^terraform-/", "")
   organization = tfe_organization.self.id
 
-  lifecycle {
-    ignore_changes = [
-      vcs_repo,
-    ]
+  vcs_repo {
+    identifier     = format("%s/%s", tfe_organization.self.id, github_repository.self.id)
+    oauth_token_id = tfe_oauth_client.self-github.oauth_token_id
   }
 }
 
