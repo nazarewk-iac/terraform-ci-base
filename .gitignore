@@ -1,0 +1,10 @@
+.idea/
+.terraform/
+
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.log
+
+*.tfvars
+*.tfvars.json
