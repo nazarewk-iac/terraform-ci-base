@@ -6,4 +6,10 @@ resource "tfe_organization" "self" {
 resource "tfe_workspace" "self" {
   name         = replace(local.self-name, "/^terraform-/", "")
   organization = tfe_organization.self.id
+
+  lifecycle {
+    ignore_changes = [
+      vcs_repo,
+    ]
+  }
 }
