@@ -1,5 +1,7 @@
 resource "github_repository" "packer-rpi-k3s" {
   name = "packer-rpi-k3s"
+
+  private = false
 }
 
 resource "github_repository" "rpi4-k3os" {

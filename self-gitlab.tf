@@ -5,4 +5,6 @@ resource "gitlab_group" "self" {
 
 resource "gitlab_project" "self" {
   name = local.self-name
+
+  visibility_level = "public"
 }
