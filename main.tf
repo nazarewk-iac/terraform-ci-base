@@ -9,12 +9,20 @@ resource "github_repository" "rpi4-k3os" {
 
   private = false
 }
+resource "github_repository" "buildah-arm64" {
+  name = "buildah-arm64"
+
+  description = "arm64 compatible build of https://github.com/containers/buildah/blob/master/contrib/buildahimage/stable"
+
+  private = false
+}
 
 locals {
   repositories = [
-    github_repository.rpi4-k3os,
+    github_repository.buildah-arm64,
     github_repository.packer-rpi-k3s,
-    github_repository.self
+    github_repository.rpi4-k3os,
+    github_repository.self,
   ]
 }
 
