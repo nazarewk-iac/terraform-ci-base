@@ -26,8 +26,15 @@ locals {
   ]
 }
 
-resource "github_branch_protection" "masters" {
+resource "github_branch" "masters" {
   for_each = {for repo in local.repositories : repo.name => repo}
+
+  repository = each.key
+  branch = "master"
+}
+
+resource "github_branch_protection" "masters" {
+  for_each = github_branch.masters
 
   repository = each.key
 
