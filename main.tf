@@ -15,6 +15,7 @@ resource "github_repository" "buildah-arm64" {
   description = "arm64 compatible build of https://github.com/containers/buildah/blob/master/contrib/buildahimage/stable"
 
   private = false
+  auto_init = true
 }
 
 locals {
