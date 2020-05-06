@@ -18,23 +18,35 @@ resource "github_repository" "buildah-arm64" {
 }
 
 locals {
-  repositories = [
+  respositories-with-branches = [
     github_repository.buildah-arm64,
+  ]
+  repositories = [
     github_repository.packer-rpi-k3s,
     github_repository.rpi4-k3os,
     github_repository.self,
   ]
 }
 
-resource "github_branch" "masters" {
-  for_each = {for repo in local.repositories : repo.name => repo}
+resource "github_branch" "masters-with-branches" {
+  for_each = {for repo in local.respositories-with-branches : repo.name => repo}
 
   repository = each.key
   branch = "master"
 }
 
 resource "github_branch_protection" "masters" {
-  for_each = github_branch.masters
+  for_each = {for repo in local.repositories : repo.name => repo}
+
+  repository = each.key
+
+  branch = "master"
+
+  require_signed_commits = true
+}
+
+resource "github_branch_protection" "masters-with-branches" {
+  for_each = github_branch.masters-with-branches
 
   repository = each.key
 
