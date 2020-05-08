@@ -9,6 +9,7 @@ resource "github_repository" "rpi4-k3os" {
 
   private = false
 }
+
 resource "github_repository" "buildah-arm64" {
   name = "buildah-arm64"
 
@@ -17,10 +18,19 @@ resource "github_repository" "buildah-arm64" {
   private = false
   auto_init = true
 }
+resource "github_repository" "k3os-configs" {
+  name = "k3os-configs"
+
+  description = "Repository containing various means to configure k3os"
+
+  private = false
+  auto_init = true
+}
 
 locals {
   repositories = [
     github_repository.buildah-arm64,
+    github_repository.k3os-configs,
     github_repository.packer-rpi-k3s,
     github_repository.rpi4-k3os,
     github_repository.self,
