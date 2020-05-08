@@ -19,6 +19,15 @@ resource "github_repository" "buildah-arm64" {
   auto_init = true
 }
 
+resource "github_repository" "rpi-container-image-builder" {
+  name = "rpi-container-image-builder"
+
+  description = "image for more easily building further images on/for Raspberry Pi 4 Kubernetes cluster"
+
+  private = false
+  auto_init = true
+}
+
 resource "github_repository" "external-dns-arm64" {
   name = "external-dns-arm64"
 
@@ -43,6 +52,7 @@ locals {
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
     github_repository.packer-rpi-k3s,
+    github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
     github_repository.self,
   ]
