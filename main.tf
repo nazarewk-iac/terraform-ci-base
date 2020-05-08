@@ -18,6 +18,16 @@ resource "github_repository" "buildah-arm64" {
   private = false
   auto_init = true
 }
+
+resource "github_repository" "external-dns-arm64" {
+  name = "external-dns-arm64"
+
+  description = "arm64 compatible build of https://github.com/kubernetes-sigs/external-dns"
+
+  private = false
+  auto_init = true
+}
+
 resource "github_repository" "k3os-configs" {
   name = "k3os-configs"
 
@@ -30,6 +40,7 @@ resource "github_repository" "k3os-configs" {
 locals {
   repositories = [
     github_repository.buildah-arm64,
+    github_repository.external-dns-arm64,
     github_repository.k3os-configs,
     github_repository.packer-rpi-k3s,
     github_repository.rpi4-k3os,
