@@ -19,6 +19,15 @@ resource "github_repository" "buildah-arm64" {
   auto_init = true
 }
 
+resource "github_repository" "build-vault-k8s-arm64" {
+  name = "build-vault-k8s-arm64"
+
+  description = "arm64 build of https://github.com/hashicorp/vault-k8s"
+
+  private = false
+  auto_init = true
+}
+
 resource "github_repository" "rpi-container-image-builder" {
   name = "rpi-container-image-builder"
 
@@ -48,6 +57,7 @@ resource "github_repository" "k3os-configs" {
 
 locals {
   repositories = [
+    github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
