@@ -55,6 +55,16 @@ resource "github_repository" "k3os-configs" {
   auto_init = true
 }
 
+resource "github_repository" "nixpi" {
+  name = "nixpi"
+
+  description = "Repository containing NixOs on Raspberry Pi (nixpi) configurations"
+
+  private = false
+  auto_init = true
+}
+
+
 locals {
   repositories = [
     github_repository.build-vault-k8s-arm64,
