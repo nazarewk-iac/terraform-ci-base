@@ -75,6 +75,7 @@ locals {
     github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
     github_repository.self,
+    github_repository.nixpi,
   ]
 }
 
