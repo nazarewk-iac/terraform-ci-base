@@ -64,6 +64,15 @@ resource "github_repository" "nixpi" {
   auto_init = true
 }
 
+resource "github_repository" "terraform-provider-extended" {
+  name = "terraform-provider-extended"
+
+  description = "Terraform extended with arbitrary commands"
+
+  private = false
+  auto_init = true
+}
+
 
 locals {
   repositories = [
@@ -71,11 +80,12 @@ locals {
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
+    github_repository.nixpi,
     github_repository.packer-rpi-k3s,
     github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
     github_repository.self,
-    github_repository.nixpi,
+    github_repository.terraform-provider-extended,
   ]
 }
 
