@@ -1,13 +1,13 @@
 resource "github_repository" "packer-rpi-k3s" {
   name = "packer-rpi-k3s"
 
-  private = false
+  visibility = "public"
 }
 
 resource "github_repository" "rpi4-k3os" {
   name = "rpi4-k3os"
 
-  private = false
+  visibility = "public"
 }
 
 resource "github_repository" "buildah-arm64" {
@@ -15,7 +15,7 @@ resource "github_repository" "buildah-arm64" {
 
   description = "arm64 compatible build of https://github.com/containers/buildah/blob/master/contrib/buildahimage/stable"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -24,7 +24,7 @@ resource "github_repository" "build-vault-k8s-arm64" {
 
   description = "arm64 build of https://github.com/hashicorp/vault-k8s"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -33,7 +33,7 @@ resource "github_repository" "rpi-container-image-builder" {
 
   description = "image for more easily building further images on/for Raspberry Pi 4 Kubernetes cluster"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -42,7 +42,7 @@ resource "github_repository" "external-dns-arm64" {
 
   description = "arm64 compatible build of https://github.com/kubernetes-sigs/external-dns"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -51,7 +51,7 @@ resource "github_repository" "k3os-configs" {
 
   description = "Repository containing various means to configure k3os"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -60,7 +60,7 @@ resource "github_repository" "nixpi" {
 
   description = "Repository containing NixOs on Raspberry Pi (nixpi) configurations"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
@@ -69,7 +69,7 @@ resource "github_repository" "terraform-provider-custom" {
 
   description = "Terraform resources defined with arbitrary commands"
 
-  private = false
+  visibility = "public"
   auto_init = true
 }
 
