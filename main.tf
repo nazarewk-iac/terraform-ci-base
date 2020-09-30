@@ -64,7 +64,7 @@ resource "github_repository" "nixpi" {
   auto_init = true
 }
 
-resource "github_repository" "terraform-provider-extended" {
+resource "github_repository" "terraform-provider-custom" {
   name = "terraform-provider-custom"
 
   description = "Terraform resources defined with arbitrary commands"
@@ -85,7 +85,7 @@ locals {
     github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
     github_repository.self,
-    github_repository.terraform-provider-extended,
+    github_repository.terraform-provider-custom,
   ]
 }
 
