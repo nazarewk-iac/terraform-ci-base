@@ -65,9 +65,9 @@ resource "github_repository" "nixpi" {
 }
 
 resource "github_repository" "terraform-provider-extended" {
-  name = "terraform-provider-extended"
+  name = "terraform-provider-custom"
 
-  description = "Terraform extended with arbitrary commands"
+  description = "Terraform resources defined with arbitrary commands"
 
   private = false
   auto_init = true
