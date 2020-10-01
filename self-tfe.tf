@@ -7,7 +7,7 @@ resource "tfe_workspace" "self" {
   name         = replace(local.self-name, "/^terraform-/", "")
   organization = tfe_organization.self.id
 
-  auto_apply = true
+  auto_apply = false
 
   vcs_repo {
     identifier     = format("%s/%s", tfe_organization.self.id, github_repository.self.id)
