@@ -88,7 +88,7 @@ locals {
     github_repository.archpi,
   ] : repo.name => repo }
 
-  repositories = { for repo in concat(local.repositories_convert_main_branch, [
+  repositories = { for repo in concat(values(local.repositories_convert_main_branch), [
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
