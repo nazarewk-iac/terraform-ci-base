@@ -104,6 +104,7 @@ locals {
 resource "github_branch_default" "masters" {
   for_each = local.repositories
 
+  repository = each.value.name
   branch = "master"
 }
 
