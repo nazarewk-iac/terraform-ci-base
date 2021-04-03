@@ -12,7 +12,7 @@ provider "tfe" {
 }
 
 provider "okta" {
-  org_name = var.okta_organization
-  base_url = var.okta_base_url
+  org_name  = var.okta_organization
+  base_url  = var.okta_base_url
   api_token = var.okta_token
 }
