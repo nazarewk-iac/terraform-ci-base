@@ -102,7 +102,7 @@ locals {
 resource "github_branch_protection" "masters" {
   for_each = {for repo in local.repositories : repo.name => repo}
 
-  repository = each.key
+  repository_id = each.value.name
 
   branch = "master"
 
