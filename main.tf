@@ -84,8 +84,11 @@ resource "github_repository" "archpi" {
 
 
 locals {
-  repositories = { for repo in [
+  repositories_convert_main_branch = { for repo in [
     github_repository.archpi,
+  ] : repo.name => repo }
+
+  repositories = { for repo in concat(local.repositories_convert_main_branch, [
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
@@ -96,16 +99,24 @@ locals {
     github_repository.rpi4-k3os,
     github_repository.self,
     github_repository.terraform-provider-custom,
-  ] : repo.name => repo }
+  ]) : repo.name => repo }
+}
 
+resource "github_branch" "mains_to_masters" {
+  for_each = local.repositories_convert_main_branch
+
+  repository = each.value.name
+  branch     = "master"
 
 }
 
 resource "github_branch_default" "masters" {
   for_each = local.repositories
 
+  depends_on = [github_branch.mains_to_masters]
+
   repository = each.value.name
-  branch = "master"
+  branch     = "master"
 }
 
 resource "github_branch_protection" "masters" {
