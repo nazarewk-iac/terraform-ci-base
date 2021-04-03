@@ -73,9 +73,19 @@ resource "github_repository" "terraform-provider-custom" {
   auto_init = true
 }
 
+resource "github_repository" "archpi" {
+  name = "archpi"
+
+  description = "Repository containing ArchLinuxARM on Raspberry Pi 4 configurations https://archlinuxarm.org"
+
+  visibility = "public"
+  auto_init = true
+}
+
 
 locals {
   repositories = [
+    github_repository.archpi,
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
