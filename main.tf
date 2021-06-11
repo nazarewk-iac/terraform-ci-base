@@ -125,7 +125,7 @@ resource "github_branch" "mains_to_masters" {
     archpi = github_repository.archpi
   }
 
-  repository = each.value.value.name
+  repository = each.value.name
   branch     = "master"
 }
 
