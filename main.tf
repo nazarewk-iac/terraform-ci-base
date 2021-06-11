@@ -121,11 +121,11 @@ locals {
 }
 
 resource "github_branch" "mains_to_masters" {
-  for_each = toset([
-    github_repository.archpi.name,
-  ])
+  for_each = {
+    archpi = github_repository.archpi
+  }
 
-  repository = each.value.key
+  repository = each.value.value.name
   branch     = "master"
 }
 
