@@ -105,11 +105,8 @@ resource "github_repository" "linux-startup-scaffolding" {
 
 
 locals {
-  repositories_convert_main_branch = { for repo in [
+  repositories = { for repo in [
     github_repository.archpi,
-  ] : repo.name => repo }
-
-  repositories = { for repo in concat(values(local.repositories_convert_main_branch), [
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
@@ -121,24 +118,7 @@ locals {
     github_repository.rpi4-k3os,
     github_repository.self,
     github_repository.terraform-provider-custom,
-  ]) : repo.name => repo }
-}
-
-resource "github_branch" "mains_to_masters" {
-  for_each = local.repositories_convert_main_branch
-
-  repository = each.value.name
-  branch     = "master"
-
-}
-
-resource "github_branch_default" "masters" {
-  for_each = local.repositories
-
-  depends_on = [github_branch.mains_to_masters]
-
-  repository = each.value.name
-  branch     = "master"
+  ] : repo.name => repo }
 }
 
 resource "github_branch_protection" "masters" {
@@ -146,7 +126,7 @@ resource "github_branch_protection" "masters" {
 
   repository_id = each.value.name
 
-  pattern = github_branch_default.masters[each.key].branch
+  pattern = each.value.default_branch
 
   require_signed_commits = true
 }
