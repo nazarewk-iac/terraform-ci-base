@@ -103,7 +103,6 @@ resource "github_repository" "linux-startup-scaffolding" {
   license_template       = "mit"
 }
 
-
 locals {
   repositories = { for repo in [
     github_repository.archpi,
@@ -119,6 +118,15 @@ locals {
     github_repository.self,
     github_repository.terraform-provider-custom,
   ] : repo.name => repo }
+}
+
+resource "github_branch" "mains_to_masters" {
+  for_each = toset([
+    github_repository.archpi.name,
+  ])
+
+  repository = each.value.key
+  branch     = "master"
 }
 
 resource "github_branch_protection" "masters" {
