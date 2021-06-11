@@ -1,13 +1,15 @@
 resource "github_repository" "packer-rpi-k3s" {
   name = "packer-rpi-k3s"
 
-  visibility = "public"
+  visibility             = "public"
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "rpi4-k3os" {
   name = "rpi4-k3os"
 
-  visibility = "public"
+  visibility             = "public"
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "buildah-arm64" {
@@ -15,8 +17,9 @@ resource "github_repository" "buildah-arm64" {
 
   description = "arm64 compatible build of https://github.com/containers/buildah/blob/master/contrib/buildahimage/stable"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "build-vault-k8s-arm64" {
@@ -24,8 +27,9 @@ resource "github_repository" "build-vault-k8s-arm64" {
 
   description = "arm64 build of https://github.com/hashicorp/vault-k8s"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "rpi-container-image-builder" {
@@ -33,8 +37,9 @@ resource "github_repository" "rpi-container-image-builder" {
 
   description = "image for more easily building further images on/for Raspberry Pi 4 Kubernetes cluster"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "external-dns-arm64" {
@@ -42,8 +47,9 @@ resource "github_repository" "external-dns-arm64" {
 
   description = "arm64 compatible build of https://github.com/kubernetes-sigs/external-dns"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "k3os-configs" {
@@ -51,8 +57,9 @@ resource "github_repository" "k3os-configs" {
 
   description = "Repository containing various means to configure k3os"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "nixpi" {
@@ -60,8 +67,9 @@ resource "github_repository" "nixpi" {
 
   description = "Repository containing NixOs on Raspberry Pi (nixpi) configurations"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "terraform-provider-custom" {
@@ -69,8 +77,9 @@ resource "github_repository" "terraform-provider-custom" {
 
   description = "Terraform resources defined with arbitrary commands"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
 }
 
 resource "github_repository" "archpi" {
@@ -78,8 +87,20 @@ resource "github_repository" "archpi" {
 
   description = "Repository containing ArchLinuxARM on Raspberry Pi 4 configurations https://archlinuxarm.org"
 
-  visibility = "public"
-  auto_init  = true
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+}
+
+resource "github_repository" "linux-startup-scaffolding" {
+  name = "linux-startup-scaffolding"
+
+  description = "Scaffolding for Linux initialization/dotfiles (shell, Xorg etc.)"
+
+  auto_init              = true
+  visibility             = "public"
+  delete_branch_on_merge = true
+  license_template       = "mit"
 }
 
 
@@ -93,6 +114,7 @@ locals {
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
+    github_repository.linux-startup-scaffolding,
     github_repository.nixpi,
     github_repository.packer-rpi-k3s,
     github_repository.rpi-container-image-builder,
