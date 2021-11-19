@@ -11,7 +11,7 @@ resource "tfe_workspace" "self" {
   auto_apply = false
 
   vcs_repo {
-    identifier     = format("%s/%s", tfe_organization.self.id, github_repository.self.id)
+    identifier     = format("%s/%s", var.github_organization, github_repository.self.id)
     oauth_token_id = tfe_oauth_client.self-github.oauth_token_id
   }
 }

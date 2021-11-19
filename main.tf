@@ -1,23 +1,3 @@
-resource "github_repository" "aws-organization" {
-  name = "aws-organization"
-
-  description = "Repository containing configuration of AWS Organization"
-
-  visibility             = "public"
-  auto_init              = true
-  delete_branch_on_merge = true
-}
-
-resource "github_repository" "eks-app-demo" {
-  name = "eks-app-demo"
-
-  description = "Repository demonstrating usage of EKS, PostgreSQL & SQS"
-
-  visibility             = "public"
-  auto_init              = true
-  delete_branch_on_merge = true
-}
-
 resource "github_repository" "packer-rpi-k3s" {
   name = "packer-rpi-k3s"
 
