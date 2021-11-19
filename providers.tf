@@ -1,3 +1,24 @@
+terraform {
+  required_providers {
+    gitlab = {
+      source = "gitlabhq/gitlab"
+      version = "~3.8"
+    }
+    github = {
+      source = "integrations/github"
+      version = "~4.18"
+    }
+    tfe = {
+      source = "hashicorp/tfe"
+      version = "~0.26"
+    }
+    okta = {
+      source = "okta/okta"
+      version = "~3.19"
+    }
+  }
+}
+
 provider "gitlab" {
   token = var.gitlab_token
 }
