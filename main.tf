@@ -1,3 +1,23 @@
+resource "github_repository" "aws-organization" {
+  name = "aws-organization"
+
+  description = "Repository containing configuration of AWS Organization"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+}
+
+resource "github_repository" "eks-app-demo" {
+  name = "eks-app-demo"
+
+  description = "Repository demonstrating usage of EKS, PostgreSQL & SQS"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "packer-rpi-k3s" {
   name = "packer-rpi-k3s"
 
@@ -106,8 +126,10 @@ resource "github_repository" "linux-startup-scaffolding" {
 locals {
   repositories = { for repo in [
     github_repository.archpi,
+    github_repository.aws-organization,
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
+    github_repository.eks-app-demo,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
     github_repository.linux-startup-scaffolding,
