@@ -1,19 +1,19 @@
 terraform {
   required_providers {
     gitlab = {
-      source = "gitlabhq/gitlab"
+      source  = "gitlabhq/gitlab"
       version = "~> 3.8"
     }
     github = {
-      source = "integrations/github"
+      source  = "integrations/github"
       version = "~> 4.18"
     }
-    tfe = {
-      source = "hashicorp/tfe"
+    tfe    = {
+      source  = "hashicorp/tfe"
       version = "~> 0.26"
     }
-    okta = {
-      source = "okta/okta"
+    okta   = {
+      source  = "okta/okta"
       version = "~> 3.19"
     }
   }
@@ -24,8 +24,8 @@ provider "gitlab" {
 }
 
 provider "github" {
-  organization = var.github_organization
-  token        = var.github_token
+  owner = var.github_organization
+  token = var.github_token
 }
 
 provider "tfe" {
