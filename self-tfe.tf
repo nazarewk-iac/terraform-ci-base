@@ -4,8 +4,8 @@ resource "tfe_organization" "self" {
 }
 
 resource "tfe_workspace" "self" {
-  name         = replace(local.self-name, "/^terraform-/", "")
-  organization = tfe_organization.self.id
+  name              = replace(local.self-name, "/^terraform-/", "")
+  organization      = tfe_organization.self.id
   terraform_version = "1.0.11"
 
   auto_apply = false

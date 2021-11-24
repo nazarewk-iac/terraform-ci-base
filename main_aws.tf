@@ -9,13 +9,13 @@ resource "github_repository" "aws-organization" {
 }
 
 resource "tfe_workspace" "aws-nazarewk-management" {
-  name         = "aws-nazarewk-management"
-  organization = tfe_organization.self.id
+  name              = "aws-nazarewk-management"
+  organization      = tfe_organization.self.id
   terraform_version = "1.0.11"
 
-  auto_apply = false
+  auto_apply          = false
   global_remote_state = false
-  queue_all_runs = false
+  queue_all_runs      = false
 
   vcs_repo {
     identifier     = format("%s/%s", var.github_organization, github_repository.aws-organization.id)

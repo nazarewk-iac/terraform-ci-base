@@ -8,11 +8,11 @@ terraform {
       source  = "integrations/github"
       version = "~> 4.18"
     }
-    tfe    = {
+    tfe = {
       source  = "hashicorp/tfe"
       version = "~> 0.26"
     }
-    okta   = {
+    okta = {
       source  = "okta/okta"
       version = "~> 3.19"
     }
