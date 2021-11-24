@@ -72,6 +72,16 @@ resource "github_repository" "nixpi" {
   delete_branch_on_merge = true
 }
 
+resource "github_repository" "nix-configs" {
+  name = "nix-configs"
+
+  description = "Repository containing my personal Nix (NixOS, Home Manager etc.) configurations"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "terraform-provider-custom" {
   name = "terraform-provider-custom"
 
@@ -112,6 +122,7 @@ locals {
     github_repository.k3os-configs,
     github_repository.linux-startup-scaffolding,
     github_repository.nixpi,
+    github_repository.nix-configs,
     github_repository.packer-rpi-k3s,
     github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
