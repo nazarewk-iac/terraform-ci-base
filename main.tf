@@ -90,6 +90,7 @@ resource "github_repository" "terraform-provider-custom" {
   visibility             = "public"
   auto_init              = true
   delete_branch_on_merge = true
+  archived               = true
 }
 
 resource "github_repository" "archpi" {
