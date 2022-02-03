@@ -91,6 +91,7 @@ resource "github_repository" "terraform-provider-custom" {
   auto_init              = true
   delete_branch_on_merge = true
   archived               = false
+  has_issues             = true
 }
 
 resource "github_repository" "archpi" {
