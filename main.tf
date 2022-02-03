@@ -80,6 +80,7 @@ resource "github_repository" "nix-configs" {
   visibility             = "public"
   auto_init              = true
   delete_branch_on_merge = true
+  has_issues             = true
 }
 
 resource "github_repository" "terraform-provider-custom" {
