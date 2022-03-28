@@ -83,6 +83,17 @@ resource "github_repository" "nix-configs" {
   has_issues             = true
 }
 
+resource "github_repository" "k8s-configs" {
+  name = "k8s-configs"
+
+  description = "Repository containing my personal Kubernetes configurations"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+  has_issues             = true
+}
+
 resource "github_repository" "terraform-provider-custom" {
   name = "terraform-provider-custom"
 
@@ -123,6 +134,7 @@ locals {
     github_repository.buildah-arm64,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
+    github_repository.k8s-configs,
     github_repository.linux-startup-scaffolding,
     github_repository.nixpi,
     github_repository.nix-configs,
