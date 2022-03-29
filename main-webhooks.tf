@@ -4,7 +4,7 @@ resource "github_repository_webhook" "argocd" {
     "argo-cd-application-set.nazarewk.pw"
   ])
 
-  repository = github_repository.k8s-configs
+  repository = github_repository.k8s-configs.name
 
   events = ["push"]
 
