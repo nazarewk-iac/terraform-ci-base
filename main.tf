@@ -32,6 +32,17 @@ resource "github_repository" "build-vault-k8s-arm64" {
   delete_branch_on_merge = true
 }
 
+
+resource "github_repository" "cookiecutter-python" {
+  name = "cookiecutter-python"
+
+  description = "Cookiecutter template for a Python lib/script"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "rpi-container-image-builder" {
   name = "rpi-container-image-builder"
 
@@ -132,12 +143,13 @@ locals {
     github_repository.archpi,
     github_repository.build-vault-k8s-arm64,
     github_repository.buildah-arm64,
+    github_repository.cookiecutter-python,
     github_repository.external-dns-arm64,
     github_repository.k3os-configs,
     github_repository.k8s-configs,
     github_repository.linux-startup-scaffolding,
-    github_repository.nixpi,
     github_repository.nix-configs,
+    github_repository.nixpi,
     github_repository.packer-rpi-k3s,
     github_repository.rpi-container-image-builder,
     github_repository.rpi4-k3os,
