@@ -1,8 +1,8 @@
 resource "github_repository_webhook" "argocd" {
-  for_each = toset([
-    "argo-cd.nazarewk.pw",
-    "argo-cd-application-set.nazarewk.pw"
-  ])
+  for_each = contains(var.features, "webhooks") ? toset([
+    # "argo-cd.nazarewk.pw",
+    # "argo-cd-application-set.nazarewk.pw"
+  ]) : []
 
   repository = github_repository.k8s-configs.name
 

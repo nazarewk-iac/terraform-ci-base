@@ -25,3 +25,8 @@ variable "tfe_organization_email" {
 variable "tfe_organization" {
   type = string
 }
+
+variable "features" {
+  type = set(string)
+  default = []
+}
