@@ -138,6 +138,17 @@ resource "github_repository" "linux-startup-scaffolding" {
   license_template       = "mit"
 }
 
+resource "github_repository" "talos-configs" {
+  name = "talos-configs"
+
+  description = "Repository containing my personal Talos Kubernetes configurations"
+
+  visibility             = "public"
+  auto_init              = true
+  delete_branch_on_merge = true
+  has_issues             = true
+}
+
 locals {
   repositories = { for repo in [
     github_repository.archpi,
@@ -149,6 +160,7 @@ locals {
     github_repository.k8s-configs,
     github_repository.linux-startup-scaffolding,
     github_repository.nix-configs,
+    github_repository.talos-configs,
     github_repository.nixpi,
     github_repository.packer-rpi-k3s,
     github_repository.rpi-container-image-builder,
