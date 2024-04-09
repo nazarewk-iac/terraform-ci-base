@@ -22,13 +22,6 @@
         "value": "${var.tfe_token}",
         "workspace_id": "${tfe_workspace.self.id}"
       },
-      "self-okta_token": {
-        "category": "terraform",
-        "sensitive": true,
-        "key": "okta_token",
-        "value": "${var.okta_token}",
-        "workspace_id": "${tfe_workspace.self.id}"
-      },
       "self-gitlab_group": {
         "category": "terraform",
         "sensitive": false,
@@ -55,20 +48,6 @@
         "sensitive": false,
         "key": "tfe_organization",
         "value": "${var.tfe_organization}",
-        "workspace_id": "${tfe_workspace.self.id}"
-      },
-      "self-okta_organization": {
-        "category": "terraform",
-        "sensitive": false,
-        "key": "okta_organization",
-        "value": "${var.okta_organization}",
-        "workspace_id": "${tfe_workspace.self.id}"
-      },
-      "self-okta_base_url": {
-        "category": "terraform",
-        "sensitive": false,
-        "key": "okta_base_url",
-        "value": "${var.okta_base_url}",
         "workspace_id": "${tfe_workspace.self.id}"
       }
     }
